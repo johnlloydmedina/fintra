@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :debtor
-  resources :loan_types
+  resources :members
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  root to: 'dashboard#index'
+  root to: 'members#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
