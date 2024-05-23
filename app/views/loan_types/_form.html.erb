@@ -1,0 +1,21 @@
+<%= form_with(model: loan_type, local: true) do |form| %>
+  <% if loan_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan_type.errors.count, "error") %> prohibited this loan type from being saved:</h2>
+      <ul>
+        <% loan_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :loan_type_name %>
+    <%= form.text_field :loan_type_name, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
