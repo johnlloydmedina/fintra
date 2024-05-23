@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240523071136) do
+ActiveRecord::Schema.define(version: 20240523071552) do
 
   create_table "loan_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "loan_type_name"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20240523071136) do
     t.integer "review_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "loan_id"
+    t.index ["loan_id"], name: "index_payments_on_loan_id"
     t.index ["member_id"], name: "index_payments_on_member_id"
   end
 
@@ -65,5 +67,6 @@ ActiveRecord::Schema.define(version: 20240523071136) do
 
   add_foreign_key "loans", "loan_types"
   add_foreign_key "loans", "members"
+  add_foreign_key "payments", "loans"
   add_foreign_key "payments", "members"
 end
