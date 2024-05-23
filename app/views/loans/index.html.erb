@@ -1,0 +1,30 @@
+<h1>Loans</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Control Number</th>
+      <th>Member</th>
+      <th>Loan Type</th>
+      <th>Amount</th>
+      <th>Duration</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.control_number %></td>
+        <td><%= loan.member.name %></td>
+        <td><%= loan.loan_type.loan_type_name %></td>
+        <td><%= loan.loan_amount %></td>
+        <td><%= loan.loan_duration %></td>
+        <td><%= loan.loan_status %></td>
+        <td><%= link_to 'Show', loan %></td>
+        <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
+        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Loan', new_loan_path, class: "btn btn-primary" %>

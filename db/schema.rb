@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240523070330) do
+ActiveRecord::Schema.define(version: 20240523070728) do
 
   create_table "loan_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "loan_type_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "loans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
+    t.string "control_number"
+    t.bigint "member_id"
+    t.bigint "loan_type_id"
+    t.decimal "loan_amount", precision: 10
+    t.integer "loan_duration"
+    t.string "loan_status"
+    t.integer "processed_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loan_type_id"], name: "index_loans_on_loan_type_id"
+    t.index ["member_id"], name: "index_loans_on_member_id"
   end
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
@@ -37,4 +51,6 @@ ActiveRecord::Schema.define(version: 20240523070330) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "loans", "loan_types"
+  add_foreign_key "loans", "members"
 end

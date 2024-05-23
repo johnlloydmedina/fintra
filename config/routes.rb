@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :members
   resources :loan_types
+  resources :loans
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 

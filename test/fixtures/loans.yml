@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  control_number: MyString
+  member: one
+  loan_type: one
+  loan_amount: 9.99
+  loan_duration: 1
+  loan_status: MyString
+  processed_by: 1
+
+two:
+  control_number: MyString
+  member: two
+  loan_type: two
+  loan_amount: 9.99
+  loan_duration: 1
+  loan_status: MyString
+  processed_by: 1

@@ -1,0 +1,51 @@
+<%= form_with(model: loan, local: true) do |form| %>
+  <% if loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+      <ul>
+        <% loan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :control_number %>
+    <%= form.text_field :control_number, class: 'form-control' %>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :member_id %>
+    <%= form.collection_select :member_id, members, :id, :name, {prompt: "Select a member"}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :loan_type_id %>
+    <%= form.collection_select :loan_type_id, loan_types, :id, :loan_type_name, {prompt: "Select a loan type"}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :loan_amount %>
+    <%= form.number_field :loan_amount, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :loan_duration %>
+    <%= form.number_field :loan_duration, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :loan_status %>
+    <%= form.text_field :loan_status, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :processed_by %>
+    <%= form.number_field :processed_by, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

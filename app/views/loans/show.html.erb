@@ -1,0 +1,23 @@
+<h1>Loan: <%= @loan.control_number %></h1>
+<p>
+  <strong>Member:</strong>
+  <%= @loan.member.name %>
+</p>
+<p>
+  <strong>Loan Type:</strong>
+  <%= @loan.loan_type.loan_type_name %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @loan.loan_amount %>
+</p>
+<p>
+  <strong>Duration:</strong>
+  <%= @loan.loan_duration %> months
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @loan.loan_status %>
+</p>
+<%= link_to 'Edit', edit_loan_path(@loan), class: "btn btn-primary" %>
+<%= link_to 'Back', loans_path, class: "btn btn-secondary" %>
