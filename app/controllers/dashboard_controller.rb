@@ -2,5 +2,8 @@ class DashboardController < ApplicationController
   def index
     @member_count = Member.count
     @loan_count = Loan.count
+    @total_loan_amount = Loan.sum(:loan_amount)
+    @total_payment_amount = Payment.sum(:payment_amount)
+    @total_payments_today = Payment.where(date: Date.today).sum(:payment_amount)
   end
 end
