@@ -1,20 +1,41 @@
-<h1>Members</h1>
-<table class="table">
-  <thead>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Members</h3>
+    <%= link_to new_member_path, class: 'btn btn-success' do %>
+      <i class="fas fa-plus"></i> New Member
+    <% end %>
+  </div>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Status</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <% @members.each do |member| %>
       <tr>
         <td><%= member.name %></td>
-        <td><%= link_to 'Show', member %></td>
-        <td><%= link_to 'Edit', edit_member_path(member) %></td>
-        <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= member.name %></td>
+        <td><%= member.name %></td>
+        <td><%= member.name %></td>
+        <td>
+          <%= link_to member_path(member), class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-eye"></i>
+          <% end %>
+
+          <%= link_to edit_member_path(member), class: 'btn btn-warning btn-sm' do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+
+          <%= link_to member_path(member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+      </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Member', new_member_path, class: "btn btn-primary" %>
