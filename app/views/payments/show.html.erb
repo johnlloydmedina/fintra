@@ -1,0 +1,19 @@
+<h1>Payment: <%= @payment.payment_reference_number %></h1>
+<p>
+  <strong>Member:</strong>
+  <%= @payment.member.name %>
+</p>
+<p>
+  <strong>Date:</strong>
+  <%= @payment.date %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @payment.payment_amount %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @payment.payment_status %>
+</p>
+<%= link_to 'Edit', edit_payment_path(@payment), class: "btn btn-primary" %>
+<%= link_to 'Back', payments_path, class: "btn btn-secondary" %>

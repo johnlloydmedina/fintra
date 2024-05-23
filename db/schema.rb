@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240523070728) do
+ActiveRecord::Schema.define(version: 20240523071136) do
 
   create_table "loan_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "loan_type_name"
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 20240523070728) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
+    t.string "payment_reference_number"
+    t.bigint "member_id"
+    t.date "date"
+    t.decimal "payment_amount", precision: 10
+    t.string "payment_status"
+    t.integer "review_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_payments_on_member_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
@@ -53,4 +65,5 @@ ActiveRecord::Schema.define(version: 20240523070728) do
 
   add_foreign_key "loans", "loan_types"
   add_foreign_key "loans", "members"
+  add_foreign_key "payments", "members"
 end
