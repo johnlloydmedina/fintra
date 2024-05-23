@@ -9,6 +9,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/partials/navigation' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/partials/sidebar' %>
+    <% end %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
   </body>
 </html>
