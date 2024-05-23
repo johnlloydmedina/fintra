@@ -1,0 +1,40 @@
+<div class="container login mt-4" id="sign-up-form">
+  <div class="row justify-content-center text-center">
+    <div class="col-md-8">
+      <h3>Create a Fintra account</h3>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h4 class="text-center">Sign up <small>it's free!</small></h4> 
+
+          <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="form-group">
+              <%= f.text_field :name, placeholder: 'username (will be shown publicly)', class: 'form-control' %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.password_field :password, placeholder: 'password', class: 'form-control' %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, placeholder: 'password confirmation', class: 'form-control' %>
+            </div>
+            
+            <div class="form-group">
+              <%= f.submit 'Sign up', class: 'btn btn-warning btn-block sign-up-button' %>
+            </div>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
