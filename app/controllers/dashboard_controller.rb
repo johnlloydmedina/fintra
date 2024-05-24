@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @member_count = Member.count
     @loan_count = Loan.count

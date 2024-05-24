@@ -17,7 +17,7 @@
         <h5 class="card-header bg-warning"><span><i class="fa fa-hand-holding-usd"></i></span> Loans </h5>
         <div class="card-body">
           <p class="card-text"> Total count: <%= @loan_count %></p>
-          <p class="card-text"> Total loan amount: <%= number_to_currency(@total_loan_amount) %></p>
+          <p class="card-text"> Total loan amount: <%= number_to_currency(@total_loan_amount, unit: "₱") %></p>
         </div>
         <div class="card-footer text-center">
           <a href="#" class="btn btn-warning">View</a>
@@ -28,8 +28,8 @@
       <div class="card" style="width: 18rem;">
         <h5 class="card-header bg-warning"><span><i class="fa fa-dollar-sign"></i></span> Payments </h5>
         <div class="card-body">
-          <p class="card-text"> Received today: <%= number_to_currency(@total_payments_today) %></p>
-          <p class="card-text"> Total payment amount: <%= number_to_currency(@total_payment_amount) %></p>
+          <p class="card-text"> Received today: <%= number_to_currency(@total_payments_today, unit: "₱") %></p>
+          <p class="card-text"> Total payment amount: <%= number_to_currency(@total_payment_amount, unit: "₱") %></p>
         </div>
         <div class="card-footer text-center">
           <a href="#" class="btn btn-warning">View</a>

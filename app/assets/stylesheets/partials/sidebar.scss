@@ -2,5 +2,21 @@
     width: 200px;
     height: 100%;
     position: fixed;
-    padding-top: 50px;
+    padding-top: 66px;
+  }
+
+  .sidebar-link {
+    color: #ffc107;
+  }
+
+  .sidebar-link:hover {
+    color: #fff;
+  }
+
+  .sidebar-icon {
+    color: #fff;
+  }
+
+  .sidebar-icon:hover {
+    color: #ffc107;
   }
