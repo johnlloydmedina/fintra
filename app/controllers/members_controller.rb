@@ -1,49 +1,49 @@
 class MembersController < ApplicationController
-    before_action :set_member, only: [:show, :edit, :update, :destroy]
-  
-    def index
-      @members = Member.all
+  before_action :set_member, only: %i[show edit update destroy]
+
+  def index
+    @members = Member.all
+  end
+
+  def show
+  end
+
+  def new
+    @member = Member.new
+  end
+
+  def edit
+  end
+
+  def create
+    @member = Member.new(member_params)
+    if @member.save
+      redirect_to @member, notice: 'Member was successfully created.'
+    else
+      render :new
     end
-  
-    def show
+  end
+
+  def update
+    if @member.update(member_params)
+      redirect_to @member, notice: 'Member was successfully updated.'
+    else
+      render :edit
     end
-  
-    def new
-      @member = Member.new
+  end
+
+  def destroy
+    @member.destroy
+    redirect_to members_url, notice: 'Member was successfully destroyed.'
+  end
+
+  private
+
+    def set_member
+      @member = Member.find(params[:id])
     end
-  
-    def edit
+
+    def member_params
+      params.require(:member).permit(:first_name, :middle_name, :last_name, :complete_address, :contact_number, :email_address, :gender, :civil_status, :birthdate, :age, :profile_picture, :username, :password, :password_confirmation, :account_status)
     end
-  
-    def create
-      @member = Member.new(member_params)
-      if @member.save
-        redirect_to @member, notice: 'Member was successfully created.'
-      else
-        render :new
-      end
-    end
-  
-    def update
-      if @member.update(member_params)
-        redirect_to @member, notice: 'Member was successfully updated.'
-      else
-        render :edit
-      end
-    end
-  
-    def destroy
-      @member.destroy
-      redirect_to members_url, notice: 'Member was successfully destroyed.'
-    end
-  
-    private
-      def set_member
-        @member = Member.find(params[:id])
-      end
-  
-      def member_params
-        params.require(:member).permit(:name)
-      end
 end
-  

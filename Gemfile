@@ -20,6 +20,7 @@ gem 'font-awesome-sass', '~> 5.15'
 gem 'bootstrap_form'
 gem 'bootstrap-will_paginate'
 gem 'faker'
+gem 'carrierwave', '~> 2.0'
 
 
 group :development, :test do

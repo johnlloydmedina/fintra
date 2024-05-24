@@ -8,20 +8,26 @@
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Contact</th>
-      <th>Status</th>
+      <th>Profile Picture</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Contact Number</th>
+      <th>Account Status</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.name %></td>
-        <td><%= member.name %></td>
-        <td><%= member.name %></td>
-        <td><%= member.name %></td>
+        <td>
+          <% if member.profile_picture.present? %>
+            <%= image_tag(member.profile_picture.url, width: 50, height: 50) %>
+          <% end %>
+        </td>
+        <td><%= member.full_name %></td>
+        <td><%= member.email_address %></td>
+        <td><%= member.contact_number %></td>
+        <td><%= member.account_status.humanize %></td>
         <td>
           <%= link_to member_path(member), class: 'btn btn-primary btn-sm' do %>
             <i class="fas fa-eye"></i>

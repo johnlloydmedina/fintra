@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240523071552) do
+ActiveRecord::Schema.define(version: 20240524053012) do
 
   create_table "loan_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "loan_type_name"
@@ -33,9 +33,23 @@ ActiveRecord::Schema.define(version: 20240523071552) do
   end
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
-    t.string "name"
+    t.string "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.text "complete_address"
+    t.string "contact_number"
+    t.string "email_address"
+    t.string "gender"
+    t.string "civil_status"
+    t.date "birthdate"
+    t.integer "age"
+    t.string "profile_picture"
+    t.string "username"
+    t.string "password_digest"
+    t.integer "account_status"
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|

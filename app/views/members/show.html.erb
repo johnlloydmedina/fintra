@@ -1,5 +1,5 @@
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>Debtor Details</h2>
+    <h2>Member Details</h2>
     <div>
       <%= link_to("Back", {:action => 'index'}, :class => 'btn btn-info') %>
       <%= link_to("Edit", {:action => 'edit', :id => @member.id}, :class => 'btn btn-warning') %>
@@ -10,7 +10,52 @@
     <tbody>
         <tr>
             <th>Member:</th>
-            <td><%= @member.name %></td>
+            <td><%= @member.full_name %></td>
+        </tr>
+        <tr>
+          <th>Complete address:</th>
+          <td><%= @member.complete_address %></td>
+        </tr>
+
+        <tr>
+          <th>Contact number:</th>
+          <td><%= @member.contact_number %></td>
+        </tr>
+
+        <tr>
+          <th>Email address:</th>
+          <td><%= @member.email_address %></td>
+        </tr>
+
+        <tr>
+          <th>Gender:</th>
+          <td><%= @member.gender %></td>
+        </tr>
+
+        <tr>
+          <th>Civil status:</th>
+          <td><%= @member.civil_status %></td>
+        </tr>
+
+        <tr>
+          <th>Birthdate:</th>
+          <td><%= @member.birthdate %></td>
+        </tr>
+
+        <tr>
+          <th>Age:</th>
+          <td><%= @member.age %></td>
+        </tr>
+
+        <tr>
+          <th>Username:</th>
+          <td><%= @member.username %></td>
+        </tr>
+
+        <tr>
+          <th>Account status:</th>
+          <td><%= @member.account_status.humanize %></td>
         </tr>
     </tbody>
   </table>
+

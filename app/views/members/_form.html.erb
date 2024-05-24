@@ -11,8 +11,78 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control' %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :complete_address %>
+    <%= form.text_area :complete_address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :contact_number %>
+    <%= form.text_field :contact_number, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email_address %>
+    <%= form.email_field :email_address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :gender %>
+    <%= form.select :gender, [['Male', 'male'], ['Female', 'female']], { prompt: 'Select Gender' }, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :civil_status %>
+    <%= form.select :civil_status, [['Single', 'single'], ['Married', 'married'], ['Divorced', 'divorced'], ['Widowed', 'widowed']], { prompt: 'Select Civil Status' }, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :birthdate %>
+    <%= form.date_select :birthdate, start_year: 1900, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :age %>
+    <%= form.number_field :age, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :profile_picture %>
+    <%= form.file_field :profile_picture, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :username %>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :account_status %>
+    <%= form.select :account_status, Member.account_statuses.keys.map { |w| [w.humanize, w] }, { prompt: 'Select Account Status' }, class: 'form-control' %>
   </div>
 
   <div class="actions">
