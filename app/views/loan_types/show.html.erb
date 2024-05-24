@@ -1,3 +1,29 @@
 <h1>Loan Type: <%= @loan_type.loan_type_name %></h1>
-<%= link_to 'Edit', edit_loan_type_path(@loan_type), class: "btn btn-primary" %>
+
+<p>
+  <strong>Loan Type Name:</strong>
+  <%= @loan_type.loan_type_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @loan_type.description %>
+</p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @loan_type.interest %>%
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @loan_type.duration %>
+</p>
+
+<p>
+  <strong>Penalty:</strong>
+  <%= @loan_type.penalty %>%
+</p>
+
+<%= link_to 'Edit', edit_loan_type_path(@loan_type), class: "btn btn-primary" %> |
 <%= link_to 'Back', loan_types_path, class: "btn btn-secondary" %>
