@@ -4,7 +4,7 @@ current_year = Time.now.year
 base_id_number = 1
 
 20.times do |i|
-  Debtor.create(
+  Member.create(
     debtor_id: "#{current_year}#{format('%03d', base_id_number + i)}",
     name: Faker::Name.name[0..49],
     contact: Faker::PhoneNumber.cell_phone_in_e164[0..12],
