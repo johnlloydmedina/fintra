@@ -5,9 +5,13 @@
       <th>Control Number</th>
       <th>Member</th>
       <th>Loan Type</th>
-      <th>Amount</th>
-      <th>Duration</th>
-      <th>Status</th>
+      <th>Loan Amount</th>
+      <th>Loan Duration</th>
+      <th>Loan Status</th>
+      <th>Mode of Payment</th>
+      <th>Purpose</th>
+      <th>Remarks</th>
+      <th>Processed By</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,11 +19,15 @@
     <% @loans.each do |loan| %>
       <tr>
         <td><%= loan.control_number %></td>
-        <td><%= loan.member.name %></td>
+        <td><%= loan.member.full_name %></td>
         <td><%= loan.loan_type.loan_type_name %></td>
         <td><%= loan.loan_amount %></td>
         <td><%= loan.loan_duration %></td>
         <td><%= loan.loan_status %></td>
+        <td><%= loan.mode_of_payment.humanize %></td>
+        <td><%= loan.purpose %></td>
+        <td><%= loan.remarks %></td>
+        <td><%= loan.processed_by.present? ? User.find(loan.processed_by).email : "N/A" %></td>
         <td><%= link_to 'Show', loan %></td>
         <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
         <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>

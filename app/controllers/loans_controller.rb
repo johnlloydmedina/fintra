@@ -45,6 +45,6 @@ class LoansController < ApplicationController
     end
 
     def loan_params
-      params.require(:loan).permit(:application_id, :control_number, :member_id, :loan_type_id, :loan_amount, :loan_duration, :loan_status, :processed_by, :mode_of_payment, :purpose, :remarks)
+      params.require(:loan).permit(:control_number, :member_id, :loan_type_id, :loan_amount, :loan_duration, :loan_status, :processed_by, :mode_of_payment, :purpose, :remarks)
     end
 end
