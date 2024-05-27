@@ -5,8 +5,8 @@
     <% end %>
   </div>
 
-<table class="table table-striped">
-  <thead class="thead-dark">
+<table class="table table-dark table-hover">
+  <thead class="text-fin">
     <tr>
       <%# <th>Profile Picture</th> %>
       <th>ID</th>
@@ -50,4 +50,5 @@
       </tr>
     <% end %>
   </tbody>
-<%= will_paginate @members, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</table>
+<%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
