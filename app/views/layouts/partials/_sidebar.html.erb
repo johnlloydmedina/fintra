@@ -1,40 +1,40 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
   <div class="sidebar-sticky pt-3">
     <ul class="nav flex-column">
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link sidebar-link" do %>
-            <i class="fas fa-tachometer-alt"></i>
-            Dashboard
+      <li class="nav-item sidebar-item">
+        <i class="fas fa-tachometer-alt"></i>
+        <%= link_to root_path, class: "nav-link sidebar-link d-inline-block" do %>
+          Dashboard
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to members_path, class: "nav-link sidebar-link" do %>
-            <i class="fas fa-users"></i>
-            Members
+      <li class="nav-item sidebar-item">
+        <i class="fas fa-users"></i>
+        <%= link_to members_path, class: "nav-link sidebar-link d-inline-block" do %>
+          Members
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to loans_path, class: "nav-link sidebar-link" do %>
-            <i class="fas fa-hand-holding-usd"></i>
-            Loans
+      <li class="nav-item sidebar-item">
+        <i class="fas fa-hand-holding-usd"></i>
+        <%= link_to loans_path, class: "nav-link sidebar-link d-inline-block" do %>
+          Loans
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to payments_path, class: "nav-link sidebar-link" do %>
-            <i class="fas fa-credit-card"></i>
-            Payments
+      <li class="nav-item sidebar-item">
+        <i class="fas fa-credit-card"></i>
+        <%= link_to payments_path, class: "nav-link sidebar-link d-inline-block" do %>
+          Payments
         <% end %>
       </li>
-      <li class="nav-item">
-       <%= link_to loan_types_path, class: "nav-link sidebar-link" do %>
-            <i class="fas fa-plug"></i>
-            Loan Types
+      <li class="nav-item sidebar-item">
+        <i class="fas fa-plug"></i>
+        <%= link_to loan_types_path, class: "nav-link sidebar-link d-inline-block" do %>
+          Loan Types
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to root_path, class: "nav-link sidebar-link" do %>
-            <i class="fas fa-cogs"></i>
-            Settings
+      <li class="nav-item sidebar-item">
+        <i class="fas fa-cogs"></i>
+        <%= link_to root_path, class: "nav-link sidebar-link d-inline-block" do %>
+          Settings
         <% end %>
       </li>
     </ul>

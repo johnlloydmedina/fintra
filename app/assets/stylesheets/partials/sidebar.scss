@@ -5,10 +5,22 @@
     padding-top: 66px;
   }
 
-  .sidebar-link {
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar-item i {
     color: #39FF14;
   }
 
-  .sidebar-link:hover {
+  .sidebar-link {
     color: #fff;
   }
+
+  .sidebar-link:hover {
+    color: #39FF14;
+  }
+
+
+  
