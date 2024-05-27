@@ -13,6 +13,6 @@ class AddDetailsToMembers < ActiveRecord::Migration[5.1]
     add_column :members, :profile_picture, :string
     add_column :members, :username, :string
     add_column :members, :password_digest, :string
-    add_column :members, :account_status, :integer
+    add_column :members, :account_status, :integer, default: 0
   end
 end

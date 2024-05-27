@@ -7,6 +7,11 @@ class MembersController < ApplicationController
   end
 
   def show
+    @member = Member.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'member_details', locals: { member: @member } }
+    end
   end
 
   def new
@@ -20,7 +25,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if @member.save
-      redirect_to @member, notice: 'Member was successfully created.'
+      redirect_to members_url, notice: 'Member was successfully created.'
     else
       render :new
     end
@@ -46,7 +51,7 @@ class MembersController < ApplicationController
     end
 
     def member_params
-      params.require(:member).permit(:first_name, :middle_name, :last_name, :complete_address, :contact_number, :email_address, :gender, :civil_status, :birthdate, :age, :profile_picture, :username, :password, :password_confirmation, :account_status)
+      params.require(:member).permit(:member_id, :first_name, :middle_name, :last_name, :complete_address, :contact_number, :email_address, :gender, :civil_status, :birthdate, :age, :profile_picture, :username, :password, :password_confirmation, :account_status)
     end
 
     def generate_member_id

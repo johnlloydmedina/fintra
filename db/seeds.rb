@@ -3,7 +3,7 @@ require 'faker'
 current_year = Time.now.year
 base_id_number = 1
 
-10.times do |i|
+100.times do |i|
   Member.create!(
     member_id: "#{current_year}#{format('%03d', base_id_number + i)}",
     first_name: Faker::Name.first_name,

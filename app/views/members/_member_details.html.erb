@@ -1,0 +1,43 @@
+  <table class="table table-bordered table-striped">
+    <tbody>
+        <tr>
+            <td>
+              <% if member.profile_picture.present? %>
+                <%= image_tag(member.profile_picture.url, width: 150, height: 150) %>
+              <% end %>
+            </td>
+            <td class="text-center">
+              <h3><%= @member.full_name %></h3>
+              <p><%= @member.contact_number %></p>
+              <h6><%= @member.complete_address %></h6>
+              <h6><%= @member.contact_number %></h6>
+              <h6><%= @member.email_address %></h6>
+            </td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td><%= @member.gender %></td>
+        </tr>
+        <tr>
+          <th>Civil status:</th>
+          <td><%= @member.civil_status %></td>
+        </tr>
+        <tr>
+          <th>Birthdate:</th>
+          <td><%= @member.birthdate %></td>
+        </tr>
+        <tr>
+          <th>Age:</th>
+          <td><%= @member.age %></td>
+        </tr>
+        <tr>
+          <th>Username:</th>
+          <td><%= @member.username %></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center">
+      <%= link_to("Back", {:action => 'index'}, :class => 'btn btn-secondary') %>
+      <%= link_to("Edit", {:action => 'edit', :id => @member.id}, :class => 'btn btn-primary') %>
+  </div>

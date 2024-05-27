@@ -1,0 +1,3 @@
+$('#memberModalBody').html("<%= j render partial: 'member_details', locals: { member: @member } %>");
+$('#editMemberLink').attr("href", "<%= edit_member_path(@member) %>");
+$('#memberModal').modal('show');

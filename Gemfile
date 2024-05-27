@@ -20,6 +20,7 @@ gem 'font-awesome-sass', '~> 5.15'
 gem 'bootstrap_form'
 # gem 'bootstrap-will_paginate'
 gem 'will_paginate-bootstrap4'
+gem 'bootstrap-datepicker-rails'
 gem 'faker'
 gem 'carrierwave', '~> 2.0'
 
