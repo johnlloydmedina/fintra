@@ -1,38 +1,50 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <h5 class="card-header bg-dark text-fin"><span><i class="fa fa-users"></i></span> Members </h5>
-        <div class="card-body">
-          <p class="card-text"> Total count: <%= @member_count %></p>
-          <p class="card-text"> Active: <%= @member_count %></p>
+        <div class="card-body bg-secondary text-light">
+          <p class="card-text"> All members: <%= @member_count %></p>
+          <p class="card-text"> Total current active members: <%= @member_count %></p>
         </div>
-        <div class="card-footer text-center">
-          <a href="#" class="btn btn-dark text-fin">View</a>
+        <div class="card-footer bg-dark text-center">
+          <a href="#" class="btn btn-secondary text-fin">View</a>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <h5 class="card-header bg-dark text-fin"><span><i class="fa fa-hand-holding-usd"></i></span> Loans </h5>
-        <div class="card-body">
+        <div class="card-body bg-secondary text-light">
           <p class="card-text"> Total count: <%= @loan_count %></p>
           <p class="card-text"> Total loan amount: <%= number_to_currency(@total_loan_amount, unit: "₱") %></p>
         </div>
-        <div class="card-footer text-center">
-          <a href="#" class="btn btn-dark text-fin">View</a>
+        <div class="card-footer bg-dark text-center">
+          <a href="#" class="btn btn-secondary text-fin">View</a>
         </div>
       </div>
     </div>
     <div class="col">
-      <div class="card" style="width: 18rem;">
+      <div class="card">
         <h5 class="card-header bg-dark text-fin"><span><i class="fa fa-dollar-sign"></i></span> Payments </h5>
-        <div class="card-body">
+        <div class="card-body bg-secondary text-light">
           <p class="card-text"> Received today: <%= number_to_currency(@total_payments_today, unit: "₱") %></p>
           <p class="card-text"> Total payment amount: <%= number_to_currency(@total_payment_amount, unit: "₱") %></p>
         </div>
-        <div class="card-footer text-center">
-          <a href="#" class="btn btn-dark text-fin">View</a>
+        <div class="card-footer bg-dark text-center">
+          <a href="#" class="btn btn-secondary text-fin">View</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header bg-dark text-fin"><span><i class="fa fa-dollar-sign"></i></span> Receivables </h5>
+        <div class="card-body bg-secondary text-light">
+          <p class="card-text"> Received today: <%= number_to_currency(@total_payments_today, unit: "₱") %></p>
+          <p class="card-text"> Total payment amount: <%= number_to_currency(@total_payment_amount, unit: "₱") %></p>
+        </div>
+        <div class="card-footer bg-dark text-center">
+          <a href="#" class="btn btn-secondary text-fin">View</a>
         </div>
       </div>
     </div>
