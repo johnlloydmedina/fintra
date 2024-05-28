@@ -24,7 +24,7 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(loan_params)
     if @loan.save
-      redirect_to @loan, notice: 'Loan was successfully created.'
+      redirect_to loans_url, notice: 'Loan was successfully created.'
     else
       render :new
     end

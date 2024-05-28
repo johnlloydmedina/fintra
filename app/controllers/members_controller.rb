@@ -33,7 +33,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to @member, notice: 'Member was successfully updated.'
+      redirect_to members_url, notice: 'Member was successfully updated.'
     else
       render :edit
     end

@@ -1,7 +1,7 @@
   <div class="row">
     <div class="col-md-3">
       <div class="card db-card">
-        <h5 class="card-header text-fin"><span><i class="fa fa-users"></i></span> Members </h5>
+        <h5 class="card-header"><span class="text-fin"><i class="fa fa-users"></i></span> Members </h5>
         <div class="card-body text-light">
           <p class="card-text"> All members:</p>
           <p class="card-text"><%= @member_count %></p>
@@ -9,13 +9,13 @@
           <p class="card-text"> <%= @active_members %></p>
         </div>
         <div class="card-footer text-center">
-          <a href="#" class="btn btn-secondary text-fin">View</a>
+          <a href="#" class="btn btn-secondary">View</a>
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="card db-card">
-        <h5 class="card-header text-fin"><span><i class="fa fa-hand-holding-usd"></i></span> Loans </h5>
+        <h5 class="card-header"><span class="text-fin"><i class="fa fa-hand-holding-usd"></i></span> Loans </h5>
         <div class="card-body text-light">
           <p class="card-text">All loans:</p>
           <p class="card-text"><%= @loan_count %></p>
@@ -23,13 +23,13 @@
           <p class="card-text"><%= number_to_currency(@total_loan_amount, unit: "₱") %></p>
         </div>
         <div class="card-footer text-center">
-          <a href="#" class="btn btn-secondary text-fin">View</a>
+          <a href="#" class="btn btn-secondary">View</a>
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="card db-card">
-        <h5 class="card-header text-fin"><span><i class="fa fa-dollar-sign"></i></span> Payments </h5>
+        <h5 class="card-header"><span class="text-fin"><i class="fa fa-dollar-sign"></i></span> Payments </h5>
         <div class="card-body text-light">
           <p class="card-text">Received today:</p>
           <p class="card-text"><%= number_to_currency(@total_payments_today, unit: "₱") %></p>
@@ -37,13 +37,13 @@
           <p class="card-text"><%= number_to_currency(@total_payment_amount, unit: "₱") %></p>
         </div>
         <div class="card-footer text-center">
-          <a href="#" class="btn btn-secondary text-fin">View</a>
+          <a href="#" class="btn btn-secondary">View</a>
         </div>
       </div>
     </div>
     <div class="col-md-3">
       <div class="card db-card">
-        <h5 class="card-header text-fin"><span><i class="fa fa-dollar-sign"></i></span> Receivables </h5>
+        <h5 class="card-header"><span class="text-fin"><i class="fa fa-dollar-sign"></i></span> Receivables </h5>
         <div class="card-body text-light">
           <p class="card-text">Received today:</p>
           <p class="card-text"><%= number_to_currency(@total_payments_today, unit: "₱") %></p>
@@ -51,7 +51,7 @@
           <p class="card-text"><%= number_to_currency(@total_payment_amount, unit: "₱") %></p>
         </div>
         <div class="card-footer text-center">
-          <a href="#" class="btn btn-secondary text-fin">View</a>
+          <a href="#" class="btn btn-secondary">View</a>
         </div>
       </div>
     </div>

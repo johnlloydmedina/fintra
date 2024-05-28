@@ -53,11 +53,11 @@
       </div>
       <div class="form-group col-md-3">
          <%= form.label :birthdate, class: 'form-label' %>
-         <%= form.text_field :birthdate, class: 'form-control datepicker' %>
+         <%= form.text_field :birthdate, placeholder: 'YYYY-MM-DD', class: 'form-control datepicker' %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :age, class: 'form-label' %>
-         <%= form.number_field :age, class: 'form-control' %>
+         <%= form.number_field :age, class: 'form-control', id: 'age-field', readonly: true %>
       </div>
    </div>
    <div class="form-row">

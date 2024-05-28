@@ -19,7 +19,7 @@ class LoanTypesController < ApplicationController
   def create
     @loan_type = LoanType.new(loan_type_params)
     if @loan_type.save
-      redirect_to @loan_type, notice: 'Loan type was successfully created.'
+      redirect_to loan_types_url, notice: 'Loan type was successfully created.'
     else
       render :new
     end

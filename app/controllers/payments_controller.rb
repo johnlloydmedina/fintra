@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
     def create
       @payment = Payment.new(payment_params)
       if @payment.save
-        redirect_to @payment, notice: 'Payment was successfully created.'
+        redirect_to payments_url, notice: 'Payment was successfully created.'
       else
         set_members_and_loans
         render :new

@@ -12,11 +12,39 @@ $(document).on('turbolinks:load', function() {
     });
   });
 
+  // document.addEventListener("turbolinks:load", function() {
+  //   $('.datepicker').datepicker({
+  //     format: 'yyyy-mm-dd',
+  //     startView: 2,
+  //     startDate: '1900-01-01'
+  //   });
+  // });
+  
   document.addEventListener("turbolinks:load", function() {
     $('.datepicker').datepicker({
       format: 'yyyy-mm-dd',
-      startView: 2,
-      startDate: '1900-01-01'
+      startView: 1,
+      startDate: '1900-01-01',
+      todayBtn: "linked",
+      todayHighlight : true,
+      autoclose: true
+    }).on('changeDate', function(e) {
+      var birthdate = e.format();
+      if (birthdate) {
+        var birthDateObj = new Date(birthdate);
+        var age = calculateAge(birthDateObj);
+        $('#age-field').val(age);
+      }
     });
+  
+    function calculateAge(birthDate) {
+      var today = new Date();
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var monthDifference = today.getMonth() - birthDate.getMonth();
+      if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
   });
   
