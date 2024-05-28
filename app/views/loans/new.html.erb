@@ -1,3 +1,6 @@
-<h1>New Loan</h1>
-<%= render 'form', loan: @loan, members: @members, loan_types: @loan_types %>
-<%= link_to 'Back', loans_path, class: "btn btn-secondary" %>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>New Loan</h3>
+    <%= link_to("Back", {:action => 'index'}, :class => 'btn btn-secondary') %>
+  </div>
+
+    <%= render 'form', loan: @loan, members: @members, loan_types: @loan_types %>

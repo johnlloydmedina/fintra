@@ -3,10 +3,15 @@ class LoansController < ApplicationController
   before_action :set_loan, only: %i[show edit update destroy]
 
   def index
-    @loans = Loan.all
+    @loans = Loan.paginate(page: params[:page], per_page: 10)
   end
 
   def show
+    @loan = Loan.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'loan_details', locals: { loan: @loan } }
+    end
   end
 
   def new

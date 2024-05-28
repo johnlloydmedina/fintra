@@ -1,0 +1,3 @@
+$('#loanModalBody').html("<%= j render partial: 'loan_details', locals: { loan: @loan } %>");
+$('#editLoanLink').attr("href", "<%= edit_loan_path(@loan) %>");
+$('#loanModal').modal('show');

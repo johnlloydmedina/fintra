@@ -1,0 +1,48 @@
+<table class="table table-dark table-bordered table-striped">
+   <tbody>
+    <tr>
+      <th>Control number:</th>
+      <td><%= @loan.control_number %></td>
+    </tr>
+      <tr>
+         <th>Member:</th>
+         <td><%= @loan.member.full_name %></td>
+      </tr>
+      <tr>
+         <th>Loan type:</th>
+         <td><%= @loan.loan_type.loan_type_name %></td>
+      </tr>
+      <tr>
+         <th>Amount:</th>
+         <td><%= @loan.loan_amount %></td>
+      </tr>
+      <tr>
+         <th>Duration:</th>
+         <td><%= @loan.loan_duration %></td>
+      </tr>
+      <tr>
+         <th>Status:</th>
+         <td><%= @loan.loan_status %></td>
+      </tr>
+      <tr>
+        <th>Mode of payment:</th>
+        <td><%= loan.mode_of_payment.humanize %></td>
+      </tr>
+      <tr>
+        <th>Purpose:</th>
+        <td><%= loan.purpose %></td>
+      </tr>
+      <tr>
+        <th>Remarks:</th>
+        <td><%= loan.remarks %></td>
+      </tr>
+      <tr>
+        <th>Processed by:</th>
+        <td><%= loan.processed_by.present? ? User.find(loan.processed_by).email : "N/A" %></td>
+      </tr>
+   </tbody>
+</table>
+<div class="text-center">
+   <%= link_to("Back", {:action => 'index'}, :class => 'btn btn-secondary') %>
+   <%= link_to("Edit", {:action => 'edit', :id => @loan.id}, :class => 'btn btn-fin') %>
+</div>

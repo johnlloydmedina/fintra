@@ -1,65 +1,63 @@
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h3>All Members</h3>
-    <%= link_to new_member_path, class: 'btn btn-dark text-fin' do %>
-      <i class="fas fa-plus"></i> New Member
-    <% end %>
-  </div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+   <h3>All Members</h3>
+   <%= link_to new_member_path, class: 'btn btn-dark text-fin' do %>
+    <i class="fas fa-plus"></i> New Member
+   <% end %>
+</div>
 
 <table class="table table-dark table-hover">
-  <thead class="text-fin">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @members.each do |member| %>
+   <thead class="text-fin">
       <tr>
-        <td><%= member.member_id %></td>
-        <td><%= member.full_name %></td>
-        <td><%= member.email_address %></td>
-        <td>
-          <% if member.account_status == 1 %>
-              <span class="badge badge-pill badge-success">Active</span>
-            <% else %>
-              <span class="badge badge-pill badge-secondary">Inactive</span>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to member_path(member), class: 'btn btn-info btn-sm', data: { toggle: "modal", target: "#memberModal", remote: true } do %>
-            <i class="fas fa-eye"></i>
-          <% end %>
-
-          <%= link_to edit_member_path(member), class: 'btn btn-primary btn-sm' do %>
-            <i class="fas fa-edit"></i>
-          <% end %>
-
-          <%= link_to member_path(member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-      </td>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Status</th>
+         <th>Action</th>
       </tr>
-    <% end %>
-  </tbody>
+   </thead>
+   <tbody>
+      <% @members.each do |member| %>
+      <tr>
+         <td><%= member.member_id %></td>
+         <td><%= member.full_name %></td>
+         <td><%= member.email_address %></td>
+         <td>
+            <% if member.account_status == 1 %>
+            <span class="badge badge-pill badge-success">Active</span>
+            <% else %>
+            <span class="badge badge-pill badge-secondary">Inactive</span>
+            <% end %>
+         </td>
+         <td>
+            <%= link_to member_path(member), class: 'btn btn-info btn-sm', data: { toggle: "modal", target: "#memberModal", remote: true } do %>
+            <i class="fas fa-eye"></i>
+            <% end %>
+            <%= link_to edit_member_path(member), class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to member_path(member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+         </td>
+      </tr>
+      <% end %>
+   </tbody>
 </table>
-<%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
+<%= will_paginate @members, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 
 <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content bg-fin-dark">
-      <div class="modal-header">
-        <h5 class="modal-title" id="memberModalLabel">Member Details</h5>
-        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content bg-fin-dark">
+         <div class="modal-header">
+            <h5 class="modal-title" id="memberModalLabel">Member Details</h5>
+            <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body" id="memberModalBody">
+            <!-- Member details will be loaded here -->
+         </div>
       </div>
-      <div class="modal-body" id="memberModalBody">
-        <!-- Member details will be loaded here -->
-      </div>
-    </div>
-  </div>
+   </div>
 </div>
