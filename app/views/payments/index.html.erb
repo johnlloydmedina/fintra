@@ -1,28 +1,59 @@
-<h1>Payments</h1>
-<table class="table">
-  <thead>
+<div class="d-flex justify-content-between align-items-center mb-3">
+   <h3>Payments</h3>
+   <%= link_to new_payment_path, class: 'btn btn-dark text-fin' do %>
+    <i class="fas fa-plus"></i> Add Payment
+   <% end %>
+</div>
+
+<table class="table table-dark table-hover">
+  <thead class="text-fin">
     <tr>
       <th>Reference Number</th>
       <th>Member</th>
       <th>Date</th>
       <th>Amount</th>
       <th>Status</th>
-      <th colspan="3"></th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <% @payments.each do |payment| %>
       <tr>
         <td><%= payment.payment_reference_number %></td>
-        <td><%= payment.member.name %></td>
+        <td><%= payment.member.full_name %></td>
         <td><%= payment.date %></td>
         <td><%= payment.payment_amount %></td>
         <td><%= payment.payment_status %></td>
-        <td><%= link_to 'Show', payment %></td>
-        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to payment_path(payment), class: 'btn btn-info btn-sm', data: { toggle: "modal", target: "#paymentModal", remote: true } do %>
+            <i class="fas fa-eye"></i>
+            <% end %>
+            <%= link_to edit_payment_path(payment), class: 'btn btn-primary btn-sm' do %>
+            <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to payment_path(payment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Payment', new_payment_path, class: "btn btn-primary" %>
+
+<%= will_paginate @payments, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+
+<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content bg-fin-dark">
+         <div class="modal-header">
+            <h5 class="modal-title" id="paymentModalLabel">Payment Details</h5>
+            <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body" id="paymentModalBody">
+            <!-- payment details will be loaded here -->
+         </div>
+      </div>
+   </div>
+</div>

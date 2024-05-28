@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
     before_action :set_members_and_loans, only: [:new, :edit]
   
     def index
-      @payments = Payment.all
+      @payments = Payment.paginate(page: params[:page], per_page: 10)
     end
   
     def show

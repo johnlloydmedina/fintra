@@ -10,42 +10,52 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+<div class="form-group bg-dark rounded p-3">
+  <div class="form-row">
+<div class="form-group col-md-4">
     <%= form.label :payment_reference_number %>
     <%= form.text_field :payment_reference_number, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-4">
     <%= form.label :member_id %>
-    <%= form.collection_select :member_id, members, :id, :name, { prompt: "Select a member" }, { class: 'form-control' } %>
+    <%= form.collection_select :member_id, members, :id, :full_name, { prompt: "Select a member" }, { class: 'form-control' } %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-4">
     <%= form.label :loan_id %>
     <%= form.collection_select :loan_id, @loans, :id, :control_number, { prompt: "Select a loan" }, { class: 'form-control' } %>
   </div>
+  </div>
 
-  <div class="form-group">
+<div class="form-row">
+<div class="form-group col-md-4">
     <%= form.label :date %>
     <%= form.date_field :date, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-4">
     <%= form.label :payment_amount %>
     <%= form.number_field :payment_amount, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-4">
     <%= form.label :payment_status %>
     <%= form.text_field :payment_status, class: 'form-control' %>
   </div>
-
-  <div class="form-group">
+</div>
+  
+<div class="form-row">
+  <div class="form-group col-md-4">
     <%= form.label :review_by %>
     <%= form.number_field :review_by, class: 'form-control' %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %>
-  </div>
+
+   <div class="actions">
+      <%= form.submit "Submit", class: 'btn btn-fin' %>
+   </div>
+</div>
+  
 <% end %>

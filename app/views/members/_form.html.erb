@@ -62,10 +62,6 @@
    </div>
    <div class="form-row">
       <div class="form-group col-md-3">
-         <%= form.label :profile_picture, class: 'form-label' %>
-         <%= form.file_field :profile_picture, class: 'form-control no-border' %>
-      </div>
-      <div class="form-group col-md-3">
          <%= form.label :username, class: 'form-label' %>
          <%= form.text_field :username, class: 'form-control' %>
       </div>
@@ -77,13 +73,17 @@
          <%= form.label :password_confirmation, class: 'form-label' %>
          <%= form.password_field :password_confirmation, class: 'form-control' %>
       </div>
+            <div class="form-group col-md-3">
+         <%= form.label :profile_picture, class: 'form-label' %>
+         <%= form.file_field :profile_picture, class: 'form-control no-border bg-transparent text-light' %>
+      </div>
    </div>
    <div class="form-group form-check">
       <%= form.check_box :account_status, { class: 'form-check-input' }, '1', '0' %>
       <%= form.label :account_status, 'Active Member?', class: 'form-check-label' %>
    </div>
    <div class="actions">
-      <%= form.submit class: 'btn btn-fin' %>
+      <%= form.submit "Submit", class: 'btn btn-fin' %>
    </div>
 </div>
 <% end %>

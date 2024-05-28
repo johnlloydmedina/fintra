@@ -1,0 +1,3 @@
+$('#paymentModalBody').html("<%= j render partial: 'payment_details', locals: { payment: @payment } %>");
+$('#editPaymentLink').attr("href", "<%= edit_payment_path(@payment) %>");
+$('#paymentModal').modal('show');
