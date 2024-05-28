@@ -2,6 +2,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
+    background-color: #0D1217;
+    color: #fff;
 }
 
 .main-content {
@@ -20,6 +22,19 @@ a {
 
 .bg-fin {
     background-color: #39FF14 !important;
+}
+
+.bg-fin-dark {
+    background-color: #1B1F26;
+}
+
+.btn-fin {
+    background-color: #39FF14 !important;
+}
+
+.btn-fin:hover {
+    background-color: #212529 !important;
+    color: #39FF14;
 }
 
 .page-link {
