@@ -16,6 +16,7 @@ class LoansController < ApplicationController
 
   def new
     @loan = Loan.new
+    @loan.control_number = generate_control_no
   end
 
   def edit
@@ -51,5 +52,18 @@ class LoansController < ApplicationController
 
     def loan_params
       params.require(:loan).permit(:control_number, :member_id, :loan_type_id, :loan_amount, :loan_duration, :loan_status, :processed_by, :mode_of_payment, :purpose, :remarks)
+    end
+
+    def generate_control_no
+      year = Time.now.year
+      last_loan = Loan.where("control_number LIKE ?", "#{year}%").order(control_number: :desc).first
+        if last_loan.present?
+          string_year = year.to_s
+          last_id_number = last_loan.control_number.split(string_year).last.to_i
+          new_id_number = last_id_number + 1
+          control_number = "#{year}#{'%03d' % new_id_number}"
+        else
+          control_number = "#{year}001"
+        end
     end
 end

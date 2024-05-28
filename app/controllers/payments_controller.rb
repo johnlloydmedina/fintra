@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
   
     def new
       @payment = Payment.new
+      @payment.payment_reference_number = generate_reference_no
     end
   
     def edit
@@ -54,6 +55,19 @@ class PaymentsController < ApplicationController
   
       def payment_params
         params.require(:payment).permit(:payment_reference_number, :member_id, :loan_id, :date, :payment_amount, :payment_status, :review_by)
+      end
+
+      def generate_reference_no
+        year = Time.now.year
+        last_payment = Payment.where("payment_reference_number LIKE ?", "#{year}%").order(payment_reference_number: :desc).first
+          if last_payment.present?
+            string_year = year.to_s
+            last_id_number = last_payment.payment_reference_number.split(string_year).last.to_i
+            new_id_number = last_id_number + 1
+            payment_reference_number = "#{year}#{'%03d' % new_id_number}"
+          else
+            payment_reference_number = "#{year}001"
+          end
       end
 end
   
