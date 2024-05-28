@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20240524071246) do
     t.string "profile_picture"
     t.string "username"
     t.string "password_digest"
-    t.integer "account_status"
+    t.integer "account_status", default: 0
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
