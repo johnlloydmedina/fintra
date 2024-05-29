@@ -12,51 +12,51 @@
 <div class="form-group bg-dark rounded p-3">
    <div class="form-row">
       <div class="form-group col-md-3">
-         <%= form.label :member_id, "Member ID", class: 'form-label' %>
+         <%= form.label :member_id, 'Member ID <small>(autofilled)</small>'.html_safe, class: 'form-label' %>
          <%= form.text_field :member_id, class: 'form-control', readonly: true %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :first_name, class: 'form-label' %>
-         <%= form.text_field :first_name, class: 'form-control' %>
+         <%= form.text_field :first_name, class: 'form-control', placeholder: "Juan" %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :middle_name, class: 'form-label' %>
-         <%= form.text_field :middle_name, class: 'form-control' %>
+         <%= form.text_field :middle_name, class: 'form-control', placeholder: "Dela" %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :last_name, class: 'form-label' %>
-         <%= form.text_field :last_name, class: 'form-control' %>
+         <%= form.text_field :last_name, class: 'form-control', placeholder: "Cruz" %>
       </div>
    </div>
    <div class="form-row">
       <div class="form-group col-md-4">
          <%= form.label :complete_address, class: 'form-label' %>
-         <%= form.text_area :complete_address, class: 'form-control', rows: 1 %>
+         <%= form.text_area :complete_address, class: 'form-control', placeholder: "123 Main Street", rows: 1 %>
       </div>
       <div class="form-group col-md-4">
          <%= form.label :contact_number, class: 'form-label' %>
-         <%= form.text_field :contact_number, class: 'form-control' %>
+         <%= form.text_field :contact_number, class: 'form-control', placeholder: "09123456789" %>
       </div>
       <div class="form-group col-md-4">
          <%= form.label :email_address, class: 'form-label' %>
-         <%= form.email_field :email_address, class: 'form-control' %>
+         <%= form.email_field :email_address, class: 'form-control', placeholder: "juandelacruz@example.com" %>
       </div>
    </div>
    <div class="form-row">
       <div class="form-group col-md-3">
          <%= form.label :gender, class: 'form-label' %>
-         <%= form.select :gender, [['Male', 'male'], ['Female', 'female']], { prompt: 'Select Gender' }, class: 'form-control' %>
+         <%= form.select :gender, [['Male', 'Male'], ['Female', 'Female']], { prompt: 'Select Gender' }, class: 'form-control' %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :civil_status, class: 'form-label' %>
-         <%= form.select :civil_status, [['Single', 'single'], ['Married', 'married'], ['Divorced', 'divorced'], ['Widowed', 'widowed']], { prompt: 'Select Civil Status' }, class: 'form-control' %>
+         <%= form.select :civil_status, [['Single', 'Single'], ['Married', 'Married'], ['Divorced', 'Divorced'], ['Widowed', 'Widowed']], { prompt: 'Select Civil Status' }, class: 'form-control' %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :birthdate, class: 'form-label' %>
          <%= form.text_field :birthdate, placeholder: 'YYYY-MM-DD', class: 'form-control datepicker' %>
       </div>
       <div class="form-group col-md-3">
-         <%= form.label :age, class: 'form-label' %>
+         <%= form.label :age, "Age <small>(autofilled)</small>".html_safe, class: 'form-label' %>
          <%= form.number_field :age, class: 'form-control', id: 'age-field', readonly: true %>
       </div>
    </div>
