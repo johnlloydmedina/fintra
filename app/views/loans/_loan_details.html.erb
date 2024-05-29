@@ -14,11 +14,11 @@
       </tr>
       <tr>
          <th>Principal Amount:</th>
-         <td><%= @loan.loan_amount %></td>
+         <td><%= number_to_currency(@loan.loan_amount, unit: "₱") %></td>
       </tr>
       <tr>
          <th>Balance:</th>
-         <td><%= @loan.loan_balance %></td>
+         <td><%= number_to_currency(@loan.loan_balance, unit: "₱") %></td>
       </tr>
       <tr>
          <th>Duration:</th>
