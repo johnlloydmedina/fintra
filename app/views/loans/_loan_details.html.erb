@@ -22,15 +22,15 @@
       </tr>
       <tr>
          <th>Status:</th>
-         <td><%= @loan.loan_status %></td>
-      </tr>
-      <tr>
-        <th>Mode of payment:</th>
-        <td><%= loan.mode_of_payment.humanize %></td>
-      </tr>
-      <tr>
-        <th>Purpose:</th>
-        <td><%= loan.purpose %></td>
+         <td>
+            <% if loan.loan_status == 0 %>
+               <span class="badge badge-pill badge-info">Pending</span>
+            <% elsif loan.loan_status == 1 %>
+               <span class="badge badge-pill badge-success">Approved</span>
+            <% else %>
+               <span class="badge badge-pill badge-danger">Declined</span>
+            <% end %>
+         </td>
       </tr>
       <tr>
         <th>Remarks:</th>

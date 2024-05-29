@@ -16,11 +16,27 @@
       </tr>
       <tr>
          <th>Gender:</th>
-         <td><%= @member.gender %></td>
+         <td>
+            <% if @member.gender == true %>
+               Male
+            <% else %>
+               Female
+            <% end %>
+         </td>
       </tr>
       <tr>
          <th>Civil status:</th>
-         <td><%= @member.civil_status %></td>
+         <td>
+            <% if @member.civil_status == 0 %>
+               Single
+            <% elsif @member.civil_status == 1 %>
+               Married
+            <% elsif @member.civil_status == 2 %>
+               Divorced
+            <% else %>
+               Widowed
+            <% end %>
+         </td>
       </tr>
       <tr>
          <th>Birthdate:</th>
@@ -37,7 +53,7 @@
       <tr>
          <th>Status:</th>
          <td>
-            <% if member.account_status == 1 %>
+            <% if @member.account_status == 1 %>
                <span class="badge badge-pill badge-success">Active</span>
             <% else %>
                <span class="badge badge-pill badge-secondary">Inactive</span>
