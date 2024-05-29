@@ -23,6 +23,7 @@
         <td><%= loan.member.full_name %></td>
         <td><%= loan.loan_type.loan_type_name %></td>
         <td><%= number_to_currency(loan.loan_amount, unit: "₱") %></td>
+        <td><%= number_to_currency(loan.loan_balance, unit: "₱") %></td>
         <td>
           <% if loan.loan_status == 0 %>
             <span class="badge badge-pill badge-info">Pending</span>

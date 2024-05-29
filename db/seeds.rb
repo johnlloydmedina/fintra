@@ -28,3 +28,7 @@ LoanType.create!([
   { loan_type_name: "Fast cash", description: "Fast cash release", interest: 5, duration: "1 week", penalty: 5 },
   { loan_type_name: "Annual", description: "Yearly ammortization", interest: 20, duration: "1 year", penalty: 5 }
 ])
+
+User.create!([
+  {:name => 'Administrator', :email => 'admin@fintra.com', :password => 'password', :password_confirmation => 'password'}
+]) 

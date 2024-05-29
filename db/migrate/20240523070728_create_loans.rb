@@ -5,6 +5,7 @@ class CreateLoans < ActiveRecord::Migration[5.1]
       t.references :member, foreign_key: true
       t.references :loan_type, foreign_key: true
       t.decimal :loan_amount
+      t.decimal :loan_balance
       t.integer :loan_duration
       t.integer :loan_status, default: 0
       t.text :purpose
