@@ -56,12 +56,12 @@ class LoansController < ApplicationController
 
     def generate_control_no
       year = Time.now.year
-      last_loan = Loan.where("control_number LIKE ?", "#{year}%").order(control_number: :desc).first
+      string_year = year.to_s
+      last_loan = Loan.where("control_number LIKE ?", "#{year}%").order(control_number: :desc).limit(1).pluck(:control_number).first
         if last_loan.present?
-          string_year = year.to_s
-          last_id_number = last_loan.control_number.split(string_year).last.to_i
+          last_id_number = last_loan.delete_prefix(string_year).to_i
           new_id_number = last_id_number + 1
-          control_number = "#{year}#{'%03d' % new_id_number}"
+          control_number = "#{year}#{format('%03d', new_id_number)}"
         else
           control_number = "#{year}001"
         end

@@ -59,12 +59,14 @@ class PaymentsController < ApplicationController
 
       def generate_reference_no
         year = Time.now.year
-        last_payment = Payment.where("payment_reference_number LIKE ?", "#{year}%").order(payment_reference_number: :desc).first
+        string_year = year.to_s
+
+        last_payment = Payment.where("payment_reference_number LIKE ?", "#{year}%").order(payment_reference_number: :desc).limit(1).pluck(:payment_reference_number).first
+
           if last_payment.present?
-            string_year = year.to_s
-            last_id_number = last_payment.payment_reference_number.split(string_year).last.to_i
+            last_id_number = last_payment.delete_prefix(string_year).to_i
             new_id_number = last_id_number + 1
-            payment_reference_number = "#{year}#{'%03d' % new_id_number}"
+            payment_reference_number = "#{year}#{format('%03d', new_id_number)}"
           else
             payment_reference_number = "#{year}001"
           end
