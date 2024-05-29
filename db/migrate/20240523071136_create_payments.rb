@@ -5,7 +5,8 @@ class CreatePayments < ActiveRecord::Migration[5.1]
       t.references :member, foreign_key: true
       t.date :date
       t.decimal :payment_amount
-      t.string :payment_status
+      t.integer :payment_status, default: 0
+      t.integer :mode_of_payment, default: 0
       t.integer :review_by
 
       t.timestamps

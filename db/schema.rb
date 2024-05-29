@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240524071246) do
+ActiveRecord::Schema.define(version: 20240524070420) do
 
   create_table "loan_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "loan_type_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.text "description"
     t.integer "interest"
     t.string "duration"
     t.integer "penalty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "loans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
@@ -28,35 +28,33 @@ ActiveRecord::Schema.define(version: 20240524071246) do
     t.bigint "loan_type_id"
     t.decimal "loan_amount", precision: 10
     t.integer "loan_duration"
-    t.string "loan_status"
+    t.integer "loan_status", default: 0
+    t.text "remarks"
     t.integer "processed_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "mode_of_payment"
-    t.text "purpose"
-    t.text "remarks"
     t.index ["loan_type_id"], name: "index_loans_on_loan_type_id"
     t.index ["member_id"], name: "index_loans_on_member_id"
   end
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "middle_name"
     t.string "last_name"
     t.text "complete_address"
     t.string "contact_number"
     t.string "email_address"
-    t.string "gender"
-    t.string "civil_status"
+    t.boolean "gender"
+    t.integer "civil_status"
     t.date "birthdate"
     t.integer "age"
     t.string "profile_picture"
     t.string "username"
     t.string "password_digest"
     t.integer "account_status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
@@ -64,7 +62,8 @@ ActiveRecord::Schema.define(version: 20240524071246) do
     t.bigint "member_id"
     t.date "date"
     t.decimal "payment_amount", precision: 10
-    t.string "payment_status"
+    t.integer "payment_status", default: 0
+    t.integer "mode_of_payment", default: 0
     t.integer "review_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

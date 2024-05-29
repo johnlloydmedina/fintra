@@ -35,32 +35,22 @@
   </div>  
 
   <div class="form-group col-md-2">
-    <%= form.label :loan_amount, "Amount" %>
-    <%= form.number_field :loan_amount, class: 'form-control' %>
-  </div>
-
-  <div class="form-group col-md-2">
     <%= form.label :loan_duration, "Duration" %>
     <%= form.text_field :loan_duration, class: 'form-control', id: 'loan_duration', readonly: true %>
   </div>
 
   <div class="form-group col-md-2">
+    <%= form.label :loan_amount, "Amount" %>
+    <%= form.number_field :loan_amount, class: 'form-control' %>
+  </div>
+
+  <div class="form-group col-md-2">
     <%= form.label :loan_status, "Status" %>
-    <%= form.text_field :loan_status, class: 'form-control' %>
+    <%= form.select :loan_status, options_for_select([['Pending', 0], ['Approved', 1], ['Declined', 2]]), {}, class: 'form-control' %>
   </div>
 
-    <div class="form-group col-md-3">
-    <%= form.label :mode_of_payment %>
-    <%= form.select :mode_of_payment, Loan.mode_of_payments.keys.map { |w| [w.humanize, w] }, { prompt: 'Select Mode of Payment' }, class: 'form-control' %>
-  </div>
+
 </div>
-  
-
-
-  <div class="form-group">
-    <%= form.label :purpose %>
-    <%= form.text_area :purpose, class: 'form-control' %>
-  </div>
 
   <div class="form-group">
     <%= form.label :remarks %>

@@ -39,10 +39,12 @@
     <%= form.text_field :payment_status, class: 'form-control' %>
   </div>
 
-    <div class="form-group col-md-4">
-    <%= form.label :review_by %>
-    <%= form.number_field :review_by, class: 'form-control' %>
+      <div class="form-group col-md-4">
+    <%= form.label :mode_of_payment %>
+    <%= form.select :mode_of_payment, Loan.mode_of_payments.keys.map { |w| [w.humanize, w] }, { prompt: 'Select Mode of Payment' }, class: 'form-control' %>
   </div>
+
+    
 </div>
   
 <div class="form-row">
@@ -51,6 +53,10 @@
     <%= form.text_field :date, class: 'form-control datepicker' %>
   </div>
 
+<div class="form-group col-md-4">
+    <%= form.label :review_by %>
+    <%= form.number_field :review_by, class: 'form-control' %>
+  </div>
 
 </div>
 
