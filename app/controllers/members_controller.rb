@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: %i[show edit update destroy]
 
   def index
-    @members = Member.paginate(page: params[:page], per_page: 10)
+    @members = Member.order(member_id: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def show

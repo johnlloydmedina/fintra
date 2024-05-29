@@ -33,7 +33,7 @@ class LoansController < ApplicationController
 
   def update
     if @loan.update(loan_params)
-      redirect_to @loan, notice: 'Loan was successfully updated.'
+      redirect_to loans_url, notice: 'Loan was successfully updated.'
     else
       render :edit
     end
@@ -51,7 +51,7 @@ class LoansController < ApplicationController
     end
 
     def loan_params
-      params.require(:loan).permit(:control_number, :member_id, :loan_type_id, :loan_amount, :loan_duration, :loan_status, :processed_by, :mode_of_payment, :purpose, :remarks)
+      params.require(:loan).permit(:control_number, :member_id, :loan_type_id, :loan_amount, :loan_duration, :loan_status, :processed_by, :remarks)
     end
 
     def generate_control_no

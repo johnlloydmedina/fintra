@@ -54,7 +54,7 @@ class PaymentsController < ApplicationController
       end
   
       def payment_params
-        params.require(:payment).permit(:payment_reference_number, :member_id, :loan_id, :date, :payment_amount, :payment_status, :review_by)
+        params.require(:payment).permit(:payment_reference_number, :member_id, :loan_id, :date, :payment_amount, :payment_status, :mode_of_payment, :review_by)
       end
 
       def generate_reference_no
