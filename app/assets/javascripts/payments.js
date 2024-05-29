@@ -1,5 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
 $(document).on('turbolinks:load', function() {
     $('a[data-remote=true]').on('ajax:success', function(event) {
       var detail = event.detail;
@@ -10,3 +8,32 @@ $(document).on('turbolinks:load', function() {
       $('#paymentModal').modal('show');
     });
   });
+
+
+  document.addEventListener("turbolinks:load", function() {
+    document.getElementById('member_select').addEventListener('change', function() {
+      var memberId = this.value;
+      var url = this.dataset.url;
+      var loanSelect = document.getElementById('loan_select');
+  
+      if (memberId) {
+        fetch(`${url}?member_id=${memberId}`)
+          .then(response => response.json())
+          .then(loans => {
+            loanSelect.innerHTML = '<option value="">Select a loan</option>';
+            loans.forEach(loan => {
+              var option = document.createElement('option');
+              option.value = loan.id;
+              option.textContent = loan.control_number;
+              loanSelect.appendChild(option);
+            });
+          })
+          .catch(() => {
+            loanSelect.innerHTML = '<option value="">Select a loan</option>';
+          });
+      } else {
+        loanSelect.innerHTML = '<option value="">Select a loan</option>';
+      }
+    });
+  });
+  
