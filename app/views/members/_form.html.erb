@@ -45,11 +45,11 @@
    <div class="form-row">
       <div class="form-group col-md-3">
          <%= form.label :gender, class: 'form-label' %>
-         <%= form.select :gender, [['Male', 'Male'], ['Female', 'Female']], { prompt: 'Select Gender' }, class: 'form-control' %>
+         <%= form.select :gender, [['Male', true], ['Female', false]], { prompt: 'Select Gender' }, class: 'form-control' %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :civil_status, class: 'form-label' %>
-         <%= form.select :civil_status, [['Single', 'Single'], ['Married', 'Married'], ['Divorced', 'Divorced'], ['Widowed', 'Widowed']], { prompt: 'Select Civil Status' }, class: 'form-control' %>
+         <%= form.select :civil_status, [['Single', 0], ['Married', 1], ['Divorced', 2], ['Widowed', 3]], { prompt: 'Select Civil Status' }, class: 'form-control' %>
       </div>
       <div class="form-group col-md-3">
          <%= form.label :birthdate, class: 'form-label' %>
@@ -79,7 +79,7 @@
       </div>
    </div>
    <div class="form-group form-check">
-      <%= form.check_box :account_status, { class: 'form-check-input' }, '1', '0' %>
+      <%= form.check_box :account_status, { class: 'form-check-input' }, 1, 0 %>
       <%= form.label :account_status, 'Active Member?', class: 'form-check-label' %>
    </div>
    <div class="actions">
