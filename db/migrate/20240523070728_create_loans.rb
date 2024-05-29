@@ -7,6 +7,7 @@ class CreateLoans < ActiveRecord::Migration[5.1]
       t.decimal :loan_amount
       t.integer :loan_duration
       t.integer :loan_status, default: 0
+      t.text :purpose
       t.text :remarks
       t.integer :processed_by
 

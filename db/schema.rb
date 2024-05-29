@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20240524070420) do
     t.decimal "loan_amount", precision: 10
     t.integer "loan_duration"
     t.integer "loan_status", default: 0
+    t.text "purpose"
     t.text "remarks"
     t.integer "processed_by"
     t.datetime "created_at", null: false
