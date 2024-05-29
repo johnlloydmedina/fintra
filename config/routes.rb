@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :members
+  resources :members do
+    get 'loans', on: :collection
+  end
   resources :loan_types
   resources :loans
   resources :payments

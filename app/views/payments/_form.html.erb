@@ -17,15 +17,16 @@
     <%= form.text_field :payment_reference_number, class: 'form-control', readonly: true %>
   </div>
 
-  <div class="form-group col-md-4">
-    <%= form.label :member_id %>
-    <%= form.collection_select :member_id, members.order(member_id: :desc), :id, :full_name, { prompt: "Select a member" }, { class: 'form-control' } %>
-  </div>
+    <div class="form-group col-md-4">
+  <%= form.label :member_id %>
+  <%= form.collection_select :member_id, Member.joins(:loans).distinct.order(member_id: :desc), :id, :full_name, { prompt: "Select a member" }, { class: 'form-control', id: 'member_select', data: { url: loans_members_path } } %>
+</div>
 
-  <div class="form-group col-md-4">
-    <%= form.label :loan_id %>
-    <%= form.collection_select :loan_id, @loans, :id, :control_number, { prompt: "Select a loan" }, { class: 'form-control' } %>
-  </div>
+<div class="form-group col-md-4">
+  <%= form.label :loan_id %>
+  <%= form.collection_select :loan_id, [], :id, :control_number, { prompt: "Select a loan" }, { class: 'form-control', id: 'loan_select' } %>
+</div>
+
   </div>
 
 <div class="form-row">

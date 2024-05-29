@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20240524070420) do
+ActiveRecord::Schema.define(version: 20240523071552) do
 
   create_table "loan_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string "loan_type_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20240524070420) do
     t.bigint "member_id"
     t.bigint "loan_type_id"
     t.decimal "loan_amount", precision: 10
+    t.decimal "loan_balance", precision: 10
     t.integer "loan_duration"
     t.integer "loan_status", default: 0
     t.text "purpose"

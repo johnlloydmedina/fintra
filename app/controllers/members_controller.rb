@@ -44,6 +44,12 @@ class MembersController < ApplicationController
     redirect_to members_url, notice: 'Member was successfully destroyed.'
   end
 
+  def loans
+    member = Member.find(params[:member_id])
+    loans = member.loans.select(:id, :control_number)
+    render json: loans
+  end
+
   private
 
     def set_member
